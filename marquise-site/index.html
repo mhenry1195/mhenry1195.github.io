@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marquise S. Henry | Neuroendocrinology of Neophobia</title>
+<meta name="description" content="Marquise S. Henry: PhD candidate and HHMI Gilliam Fellow at Louisiana State University, studying the neural and neuroendocrine basis of neophobia in vertebrates.">
+<!-- Tab icon -->
+<link rel="icon" href="images/favicon-face-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="images/favicon-face-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon-face.png">
+<meta name="theme-color" content="#150e17">
+<!-- Link preview (LinkedIn, Slack, texts, etc.).
+     Once the site is live, replace https://YOUR-USERNAME.github.io with your real address
+     in the two lines marked SITE URL. Link previews need the full address to find the image. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marquise S. Henry">
+<meta property="og:description" content="PhD candidate and HHMI Gilliam Fellow at LSU studying the neural and neuroendocrine mechanisms of neophobia in vertebrates.">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/"><!-- SITE URL -->
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/images/preview.png"><!-- SITE URL -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marquise S. Henry: neuroendocrinology of neophobia">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #150e17;
+    --bg-2: #1a121d;
+    --surface: #221827;
+    --border: #35283b;
+    --text: #f1eaf2;
+    --muted: #ab9bb1;
+    --green: #7df09c;
+    --magenta: #ff5fc6;
+    --radius: 18px;
+    --max: 1080px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 400 17px/1.7 "Manrope", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 500; line-height: 1.15; }
+  .mono { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 70;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: rgba(21, 14, 23, 0.7);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s;
+  }
+  nav.scrolled { border-bottom-color: var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-family: "Fraunces", serif; font-size: 1.15rem; color: var(--text); }
+  .brand span { color: var(--magenta); }
+  /* Menu toggle (top right) */
+  .menu-btn {
+    position: relative; z-index: 60; display: flex; align-items: center; gap: 12px;
+    background: none; border: 0; cursor: pointer; color: var(--text);
+    font: 400 0.8rem "JetBrains Mono", monospace; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .menu-btn .bars { position: relative; width: 26px; height: 12px; }
+  .menu-btn .bars span {
+    position: absolute; left: 0; right: 0; height: 2px; border-radius: 2px; background: currentColor;
+    transition: transform .35s ease, top .35s ease;
+  }
+  .menu-btn .bars span:first-child { top: 0; }
+  .menu-btn .bars span:last-child { top: 10px; }
+  body.menu-open .menu-btn .bars span:first-child { top: 5px; transform: rotate(45deg); }
+  body.menu-open .menu-btn .bars span:last-child { top: 5px; transform: rotate(-45deg); }
+  body.menu-open { overflow: hidden; }
+  body.menu-open nav { border-bottom-color: transparent; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+  /* Full-screen overlay menu */
+  .overlay {
+    position: fixed; inset: 0; z-index: 55;
+    background: rgba(21, 14, 23, 0.97);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility .4s;
+    overflow-y: auto; padding: 96px 16px 48px;
+  }
+  body.menu-open .overlay { opacity: 1; visibility: visible; }
+  .links { list-style: none; display: flex; flex-direction: column; align-items: center; gap: clamp(22px, 5vh, 44px); margin: auto 0; }
+  .links li { opacity: 0; transform: translateY(14px); transition: opacity .45s ease, transform .45s ease; }
+  body.menu-open .links li { opacity: 1; transform: none; }
+  body.menu-open .links li:nth-child(1) { transition-delay: .05s; }
+  body.menu-open .links li:nth-child(2) { transition-delay: .10s; }
+  body.menu-open .links li:nth-child(3) { transition-delay: .15s; }
+  body.menu-open .links li:nth-child(4) { transition-delay: .20s; }
+  body.menu-open .links li:nth-child(5) { transition-delay: .25s; }
+  body.menu-open .links li:nth-child(6) { transition-delay: .30s; }
+  body.menu-open .links li:nth-child(7) { transition-delay: .35s; }
+  .links a {
+    position: relative; display: inline-block; padding: 4px 18px 10px;
+    font: 400 clamp(1.05rem, 2.4vw, 1.35rem) "JetBrains Mono", monospace;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); transition: color .25s;
+  }
+  .links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--magenta);
+    transform: scaleX(0); transition: transform .3s ease;
+  }
+  .links a:hover { color: var(--text); text-decoration: none; }
+  .links a:hover::after, .links a.active::after { transform: scaleX(1); }
+  .links a.active { color: var(--text); }
+  .links a.menu-cta {
+    margin-top: 4px; padding: 14px 34px; border-radius: 6px;
+    background: var(--magenta); color: #1e0716; transition: background .25s, transform .25s;
+  }
+  .links a.menu-cta::after { display: none; }
+  .links a.menu-cta:hover { background: #ff85d4; transform: translateY(-2px); }
+
+  /* ---------- HERO ---------- */
+  header.hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+  #field { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(90deg, rgba(21,14,23,.55) 0%, rgba(21,14,23,.15) 45%, transparent 70%), linear-gradient(transparent 75%, var(--bg));
+  }
+  .hero .wrap { position: relative; z-index: 2; width: 100%; pointer-events: none; }
+  .hero .wrap * { pointer-events: auto; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); font-weight: 300; margin: 18px 0 20px; letter-spacing: -0.02em; }
+  .hero h1 em { font-style: italic; color: var(--magenta); }
+  .hero p.lede { max-width: 560px; color: var(--muted); font-size: 1.1rem; }
+  .cta { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
+    border: 1px solid var(--border); color: var(--text); background: var(--surface);
+    transition: transform .2s, border-color .2s, background .2s;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--green); }
+  .btn.primary { background: var(--green); color: #07210f; border-color: var(--green); }
+  .btn.primary:hover { background: #a2f7b9; }
+  .hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2; }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 120px 0; border-top: 1px solid var(--border); }
+  section:nth-of-type(even) { background: var(--bg-2); }
+  .section-head { display: grid; grid-template-columns: 220px 1fr; gap: 40px; margin-bottom: 56px; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
+  .section-head p { color: var(--muted); max-width: 620px; margin-top: 14px; }
+  .num { color: var(--magenta); }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: start; }
+  .portrait {
+    aspect-ratio: 4/5; border-radius: var(--radius); border: 1px solid var(--border);
+    background:
+      radial-gradient(circle at 30% 25%, rgba(125,240,156,.25), transparent 55%),
+      radial-gradient(circle at 75% 80%, rgba(255,95,198,.22), transparent 55%),
+      var(--surface);
+    display: grid; place-items: center;
+    font-family: "Fraunces", serif; font-size: 4rem; color: var(--text);
+    overflow: hidden;
+  }
+  .portrait { position: relative; }
+  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .portrait .sparrow { aspect-ratio: 4/3; height: auto; opacity: .85; }
+  .about p + p { margin-top: 18px; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 32px; }
+  .fact { padding: 16px 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+  .fact b { display: block; font-weight: 600; margin-top: 4px; font-size: 0.95rem; }
+
+  /* Banner photo above Current Projects */
+  #research { padding-top: 0; }
+  .banner {
+    position: relative; height: clamp(220px, 34vw, 420px); margin-bottom: 96px; overflow: hidden;
+    background:
+      radial-gradient(circle at 20% 40%, rgba(125,240,156,.14), transparent 50%),
+      radial-gradient(circle at 80% 60%, rgba(255,95,198,.12), transparent 50%),
+      var(--surface);
+    display: grid; place-items: center;
+  }
+  .banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .banner::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(var(--bg) 0%, transparent 18%, transparent 70%, var(--bg-2) 100%);
+  }
+  .banner .ph { color: var(--muted); }
+
+  /* Research cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+  .card {
+    position: relative; padding: 30px; border-radius: var(--radius);
+    border: 1px solid var(--border); background: var(--surface);
+    transition: transform .3s, border-color .3s;
+    overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .4s;
+    background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 0%), rgba(125,240,156,.10), transparent 60%);
+  }
+  .card:hover { transform: translateY(-4px); border-color: #4a3852; }
+  .card:hover::before { opacity: 1; }
+  .card h3 { font-size: 1.35rem; margin: 12px 0 10px; }
+  .card p { color: var(--muted); font-size: 0.97rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .tag { font-size: 0.75rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+
+  /* Trajectory timeline */
+  .path { margin-top: 72px; }
+  .path h3 { font-size: 1.5rem; margin-bottom: 28px; }
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--magenta), var(--green)); border-radius: 2px; }
+  .step { position: relative; padding-bottom: 30px; }
+  .step::before { content: ""; position: absolute; left: -28px; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--green); }
+  .step:last-child::before { background: var(--green); box-shadow: 0 0 0 6px rgba(125,240,156,.15); }
+  .step h4 { font-weight: 600; font-size: 1.05rem; }
+  .step p { color: var(--muted); font-size: 0.95rem; }
+
+  /* Publications */
+  .pubs { list-style: none; display: grid; gap: 14px; }
+  .pub { display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+  .pub .status { color: var(--magenta); }
+  .pub .title { font-family: "Fraunces", serif; font-size: 1.2rem; }
+  .pub .meta { color: var(--muted); font-size: 0.93rem; margin-top: 4px; }
+  .placeholder { color: var(--muted); font-style: italic; }
+  .cv-box {
+    margin-top: 48px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    padding: 28px 32px; border-radius: var(--radius); border: 1px solid var(--border);
+    background: linear-gradient(120deg, rgba(125,240,156,.08), rgba(255,95,198,.06)), var(--surface);
+  }
+  .cv-box h3 { font-size: 1.4rem; }
+  .cv-box p { color: var(--muted); font-size: 0.95rem; }
+
+  /* Teaching */
+  .course { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+  .course h3 { font-size: 1.4rem; margin-bottom: 8px; }
+  .course p { color: var(--muted); }
+  .statement {
+    margin-top: 56px; padding: 36px 40px; border-radius: var(--radius); border: 1px solid var(--border);
+    background: linear-gradient(120deg, rgba(255,95,198,.07), rgba(125,240,156,.05)), var(--surface);
+  }
+  .statement h3 { font-size: 1.6rem; margin: 10px 0 16px; }
+  .statement p { color: var(--muted); max-width: 760px; }
+  .statement p + p { margin-top: 14px; }
+  .philosophy { margin-top: 48px; padding-left: 24px; border-left: 3px solid var(--magenta); font-family: "Fraunces", serif; font-size: 1.35rem; font-weight: 300; font-style: italic; max-width: 760px; }
+
+  /* News */
+  .news { list-style: none; }
+  .news li { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+  .news-body p { margin: 0; }
+  .news-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; font-size: .92rem; }
+  .news-links a::after { content: " \2197"; }
+  .news-media { margin-top: 16px; display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--border);
+    transition: transform .25s, border-color .25s; }
+  a.news-media:hover { transform: translateY(-2px); border-color: var(--green); }
+  .news-media img { display: block; width: 100%; height: auto; }
+  .news-media.wide { width: min(380px, 100%); }
+  .news-media.tall { width: min(240px, 70%); }
+  .news time { font-family: "JetBrains Mono", monospace; font-size: 0.82rem; color: var(--green); padding-top: 3px; }
+
+  /* Contact / footer */
+  .contact { text-align: center; }
+  .contact h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 300; }
+  .contact p { color: var(--muted); margin: 16px auto 32px; max-width: 520px; }
+  .contact .cta { justify-content: center; }
+  .contact-photo {
+    width: min(320px, 70vw); aspect-ratio: 4/5; margin: 0 auto 28px; overflow: hidden;
+    border-radius: var(--radius); border: 1px solid var(--border);
+    box-shadow: 0 0 0 6px rgba(125,240,156,.06), 0 20px 50px rgba(0,0,0,.35);
+  }
+  .contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 72% 45%; display: block; }
+  footer { padding: 36px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 820px) {
+    .statement { padding: 28px 22px; }
+    .banner { margin-bottom: 64px; }
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    .menu-btn .label { display: none; }
+    .hero::after { background: linear-gradient(rgba(21,14,23,.55), rgba(21,14,23,.55)), linear-gradient(transparent 75%, var(--bg)); }
+    section { padding: 80px 0; }
+    .section-head, .about, .course { grid-template-columns: 1fr; gap: 20px; }
+    .portrait { max-width: 220px; }
+    .pub, .news li { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Line-drawn sparrow, reused via <use href="#sparrow"> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sparrow" viewBox="0 0 120 90">
+    <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M23 29 L15 32 L23 34"/>
+      <path d="M23 29 C24 20 32 15.5 40 17 C48 18.5 53 24 57 29 C72 33 88 40 102 49 L113 51 L110 57 L99 56.5 C86 65 66 69.5 51 65.5 C36 61.5 25 50 23 34"/>
+      <path d="M50 35 C64 36 80 44 95 53 C83 58 67 58.5 55 52.5 C50 50 48 44 50 35"/>
+      <path d="M58 41 C66 43 74 47 82 52"/>
+      <path d="M30 33 C35 38 42 41 49 42"/>
+      <path d="M49 65.5 L46.5 78 M46.5 78 L42 80 M46.5 78 L49 80.5 M58 66.5 L58.5 78 M58.5 78 L54.5 80 M58.5 78 L61.5 80.5"/>
+      <path d="M28 80.5 C50 79.5 74 79.5 96 80.5"/>
+    </g>
+    <circle cx="31" cy="25.5" r="1.5" fill="var(--magenta)"/>
+  </symbol>
+</svg>
+
+<!-- ================= NAV ================= -->
+<nav id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Marquise S. Henry<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="overlay">
+      <span class="label" id="menuLabel">Menu</span>
+      <span class="bars"><span></span><span></span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="overlay" id="overlay" aria-hidden="true">
+  <ul class="links" id="links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Current Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#news">Outreach &amp; News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a class="menu-cta" href="cv.pdf">Download CV</a></li>
+  </ul>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="mono">PhD Candidate &middot; HHMI Gilliam Fellow &middot; Louisiana State University</div>
+    <h1>Hi, I'm <em>Marquise Henry</em>.</h1>
+    <p class="lede">I study the neural and neuroendocrine mechanisms of neophobia, the fear of novelty, in vertebrates.</p>
+    <div class="cta">
+      <a class="btn primary" href="#research">See current projects &rarr;</a>
+      <a class="btn" href="cv.pdf">Download CV</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="mono"><span class="num">01</span> &mdash; About</div>
+      <h2>Thank you for coming to my website!</h2>
+    </div>
+    <div class="about reveal">
+      <!-- Save your photo as images/marquise.jpg. The sparrow shows until the photo is there. -->
+      <div class="portrait">
+        <svg class="sparrow" style="width:70%;color:var(--green)"><use href="#sparrow"/></svg>
+        <img src="images/marquise.jpg" alt="Marquise S. Henry" onerror="this.remove()">
+      </div>
+      <div>
+        <p>I'm a PhD candidate in the Department of Biological Sciences at Louisiana State University and an HHMI Gilliam Fellow. In Dr. Christine Lattin's lab, I study how the brain and endocrine system shape an animal's response to new things: new objects, new foods, new places.</p>
+        <div class="facts">
+          <div class="fact"><span class="mono">Lab</span><b>Lattin Lab, LSU</b></div>
+          <div class="fact"><span class="mono">Focus</span><b>Neuroendocrinology of neophobia</b></div>
+          <div class="fact"><span class="mono">Fellowship</span><b>HHMI Gilliam Fellow (2025)</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESEARCH ================= -->
+<section id="research">
+  <!-- Banner photo: images/research-banner-web.jpg is a smaller copy of research-banner.jpg so the page loads quickly.
+       To focus on a different part of the photo, change object-position in the .banner img style
+       (for example "center top" or "center 30%"). -->
+  <div class="banner">
+    <span class="ph mono">Banner photo: images/research-banner.jpg</span>
+    <img src="images/research-banner-web.jpg" alt="" onerror="this.remove()">
+  </div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="mono"><span class="num">02</span> &mdash; Current Projects</div>
+      <div>
+        <h2>The biology of caution</h2>
+        <p>Neophobia helps animals avoid danger, but it can also stop them from using new resources. I want to know which neural circuits and hormonal signals set that balance.</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="mono">Current</div>
+        <h3>Neural substrates of neophobia</h3>
+        <p>Mapping the circuits behind novelty avoidance, including the amygdala, insular and perirhinal cortex, and hippocampus, and how dopamine and norepinephrine modulate them.</p>
+        <div class="tags"><span class="tag">Amygdala</span><span class="tag">Dopamine</span><span class="tag">Norepinephrine</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="mono">Current</div>
+        <h3>Perineuronal nets in songbirds</h3>
+        <p>Validating antibodies to label perineuronal nets and parvalbumin interneurons in House Sparrow brains, so we can ask how neural plasticity relates to novelty responses.</p>
+        <div class="tags"><span class="tag">House Sparrow</span><span class="tag">Western blot</span><span class="tag">IHC</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="mono">Current</div>
+        <h3>The hippocampus and object neophobia</h3>
+        <p>Recent work in house sparrows has revealed differences in hippocampal gene expression between neophobic and non-neophobic birds. Building on those findings, this project aims to clarify the role of the hippocampus in how house sparrows respond to novelty.</p>
+        <div class="tags"><span class="tag">Hippocampus</span><span class="tag">Gene expression</span><span class="tag">House Sparrow</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PUBLICATIONS ================= -->
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="mono"><span class="num">03</span> &mdash; Publications</div>
+      <div>
+        <h2>Publications &amp; CV</h2>
+        <!-- Paste your profile URLs between the quotes in href="..." -->
+        <p>Full list on <a href="https://scholar.google.com/citations?user=rYd3F04AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> and <a href="https://orcid.org/0000-0002-6256-1423" target="_blank" rel="noopener">ORCID</a>.</p>
+      </div>
+    </div>
+
+    <!-- One <li class="pub"> block per paper. PDF links point to files in a "papers" folder
+         next to index.html. Save each PDF there with the file name shown in its link. -->
+    <ul class="pubs reveal">
+      <li class="pub">
+        <span class="mono">2026</span>
+        <div>
+          <div class="title">Neural substrates and neuroendocrine mechanisms underlying neophobia in vertebrates</div>
+          <div class="meta"><b>Henry, M.S.</b>, et al. &middot; Invited review, <i>Journal of Experimental Biology</i> &middot; <a href="papers/henry-2026-jeb.pdf" target="_blank" rel="noopener">PDF</a></div>
+        </div>
+      </li>
+      <li class="pub">
+        <span class="mono">2025</span>
+        <div>
+          <div class="title">A glucocorticoid receptor antagonist affects corticosterone but not neophobia in wild-caught house sparrows (<i>Passer domesticus</i>)</div>
+          <div class="meta"><b>Henry, M.S.</b>, et al. &middot; Research article, <i>Journal of Neuroendocrinology</i> &middot; <a href="papers/henry-2025-jne.pdf" target="_blank" rel="noopener">PDF</a></div>
+        </div>
+      </li>
+      <li class="pub">
+        <span class="mono">2025</span>
+        <div>
+          <div class="title">Spatial neophobia is still not correlated with object neophobia in wild-caught house sparrows (<i>Passer domesticus</i>)</div>
+          <div class="meta"><b>Dusang, B.A. &amp; Henry, M.S.</b>, et al. &middot; Research article, <i>Royal Society Open Science</i> &middot; <a href="papers/dusang-henry-2025-rsos.pdf" target="_blank" rel="noopener">PDF</a></div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="cv-box reveal">
+      <div>
+        <h3>Curriculum Vitae</h3>
+        <p>Full list of publications, presentations, awards, and service.</p>
+      </div>
+      <a class="btn primary" href="cv.pdf">Download PDF &darr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEACHING ================= -->
+<section id="teaching">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="mono"><span class="num">04</span> &mdash; Teaching</div>
+      <div>
+        <h2>Teaching &amp; Mentoring</h2>
+        <p>I want students to leave my classes able to question a claim, weigh the evidence, and change their minds when the data say so.</p>
+      </div>
+    </div>
+
+    <div class="course reveal">
+      <div class="mono">Fall 2026</div>
+      <div>
+        <h3>SCI 1001: Becoming a Scientist</h3>
+        <!-- Optional description: <p>One or two sentences about the course and your role.</p> -->
+      </div>
+    </div>
+    <div class="course reveal">
+      <div class="mono">Fall 2021 - Spring 2023</div>
+      <div>
+        <h3>BIOL 2040: Concepts in Biology Lab</h3>
+        <!-- Optional description: <p>One or two sentences about the course and your role.</p> -->
+      </div>
+    </div>
+    <div class="course reveal">
+      <div class="mono">Ongoing</div>
+      <div>
+        <h3>Research mentorship</h3>
+        <p>I mentor undergraduate researchers in the Lattin Lab on bench techniques such as western blotting and immunohistochemistry.</p>
+      </div>
+    </div>
+
+    <!-- Mentoring statement: replace the placeholder paragraphs with your own text.
+         Each <p>...</p> is one paragraph; add or remove as many as you need. -->
+    <div class="statement reveal" id="mentoring">
+      <div class="mono">Mentoring</div>
+      <h3>Mentoring statement</h3>
+      <p>My mentoring philosophy is to provide the structure and room for each protégé to develop skills that may benefit them in their career and life. As every mentee is unique, I aim to understand the goals of each protégé, as well as their style of learning. I strive to create a balanced interaction in which we learn from one another. I want them to feel comfortable in seeking my advice or discuss next steps. To develop this relationship based on mutual respect, I work with them to establish expectations that we will follow and listen to their concerns. Once proteges have developed skills beneficial to them and the confidence that they can accomplish their goals, my role changes to stepping back and allowing them to grow on their own.</p>
+      <p>To assist them in developing their particular skill set, I provide them with insight into the choices I have made in my career and the impacts of those choices. Through these discussions, I have learned that many proteges are unaware of the opportunities and resources available to them. Guiding them to find such resources and showing them how to utilize them strategically is one of my goals. To help them develop a network of other potential guides with different experiences than my own, I require students to present at a professional meeting or conference. These meetings allow mentees to establish colleagues and potential next steps in their careers.</p>
+      <p>Understanding my proteges is an important step in accommodating their individual goals and ensuring their skills and actions help them reach them. While teaching is a focus of mine, I also want to challenge them. This allows them to learn the necessary critical thinking and problem-solving skills to work independently and confidently.</p>
+      <p>I require that my proteges demonstrate enthusiasm, honesty, effective communication, and initiative. That is a standard I have set for myself and aim to utilize in my mentee interactions. I strive to provide a safe presence so proteges feel comfortable coming to me with concerns, questions, and feedback. Should proteges have concerns or require guidance on topics outside the focus of their careers, I am open to discussing these issues and finding potential resources to help deal with them. Forming meaningful connections with each student, providing opportunities and training, and listening to their concerns is my focus as I aim to provide an environment that facilitates mutual growth and a successful career.</p>
+    </div>
+
+    <!-- Optional teaching-philosophy quote:
+    <blockquote class="philosophy reveal">"A line from your teaching philosophy."</blockquote> -->
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section id="news">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="mono"><span class="num">05</span> &mdash; Outreach &amp; News</div>
+      <div>
+        <h2>Recent updates</h2>
+        <p>Talks, awards, service, and outreach.</p>
+      </div>
+    </div>
+    <ul class="news reveal">
+      <li><time>2026</time><span>Published an invited review on the neural and neuroendocrine mechanisms of neophobia in the <i>Journal of Experimental Biology</i>.</span></li>
+      <li>
+        <time>Aug 2025</time>
+        <div class="news-body">
+          <p>Named an <b>HHMI Gilliam Fellow</b> (2025 cohort).</p>
+          <!-- The HHMI graphic loads from HHMI's site. If it ever stops showing, save the image as
+               images/hhmi-gilliam-2025.png and change the src below to that path. -->
+          <a class="news-media wide" href="https://www.hhmi.org/programs/gilliam-fellows/2025-fellows" target="_blank" rel="noopener" aria-label="HHMI: The 2025 Gilliam Fellows">
+            <img src="https://www.hhmi.org/sites/default/files/2025-08/2025_gilliam_fellows_graphic_1200_x_627_px.png" alt="HHMI 2025 Gilliam Fellows announcement graphic" loading="lazy"
+                 onerror="this.parentElement.outerHTML='&lt;div class=&quot;news-links&quot;&gt;&lt;a href=&quot;https://www.hhmi.org/programs/gilliam-fellows/2025-fellows&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;HHMI: The 2025 Gilliam Fellows&lt;/a&gt;&lt;/div&gt;'">
+          </a>
+          <div class="news-links">
+            <a href="https://www.lsu.edu/science/news/2025/08/hhmi-gilliam-fellow.php" target="_blank" rel="noopener">LSU College of Science story</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <time>Feb 2025</time>
+        <div class="news-body">
+          <p>Attended Kids&rsquo; Day at the Museum at the <a href="https://www.lsu.edu/mns/index.php" target="_blank" rel="noopener">LSU Museum of Natural Science</a>, teaching local 4th&ndash;6th graders about neurobiology.</p>
+          <figure class="news-media tall"><img src="images/kids-day.png" alt="Marquise showing students a live muscle-activity recording at Kids' Day at the Museum" loading="lazy"></figure>
+        </div>
+      </li>
+      <!-- Add more (newest first):
+      <li>
+        <time>Mon YYYY</time>
+        <div class="news-body"><p>What happened.</p></div>
+      </li> -->
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <div class="wrap reveal">
+    <!-- Contact photo: images/poster-web.jpg is a smaller copy of poster.jpeg so the page loads quickly.
+         To focus on a different part of the photo, change object-position in .contact-photo img. -->
+    <figure class="contact-photo"><img src="images/poster-web.jpg" alt="Marquise S. Henry presenting a poster on neophobia assays" loading="lazy"></figure>
+    <div class="mono"><span class="num">06</span> &mdash; Contact</div>
+    <h2 style="margin-top:16px">Let's talk science.</h2>
+    <p>I'm open to collaborations, speaking invitations, and questions from students interested in research.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:mhenr55@lsu.edu">mhenr55@lsu.edu</a>
+      <!-- Paste your profile URLs between the quotes in href="..." -->
+      <a class="btn" href="https://scholar.google.com/citations?user=rYd3F04AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="btn" href="https://orcid.org/0000-0002-6256-1423" target="_blank" rel="noopener">ORCID</a>
+      <a class="btn" href="https://www.linkedin.com/in/marquisehenry" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span style="display:inline-flex;align-items:center;gap:10px"><svg style="width:34px;height:26px;color:var(--muted)"><use href="#sparrow"/></svg>&copy; <span id="yr"></span> Marquise S. Henry</span>
+    <span>Department of Biological Sciences &middot; Louisiana State University</span>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const links = document.getElementById('links');
+  const menuBtn = document.getElementById('menuBtn');
+  const overlay = document.getElementById('overlay');
+  const menuLabel = document.getElementById('menuLabel');
+  function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    overlay.setAttribute('aria-hidden', !open);
+    menuLabel.textContent = open ? 'Close' : 'Menu';
+  }
+  menuBtn.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  overlay.addEventListener('click', e => { if (e.target === overlay) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  // Nav border on scroll + active section
+  const nav = document.getElementById('nav');
+  const navLinks = [...links.querySelectorAll('a:not(.menu-cta)')];
+  const sections = navLinks.map(a => document.querySelector(a.getAttribute('href')));
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    let current = null;
+    sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < 140) current = i; });
+    navLinks.forEach((a, i) => a.classList.toggle('active', i === current));
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Card spotlight follows cursor
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // Hero: fluorescent neurons grow in, then fire (like calcium imaging)
+  // when the cursor comes near. Occasional spontaneous activity keeps it alive.
+  (function () {
+    const canvas = document.getElementById('field');
+    const ctx = canvas.getContext('2d');
+    const base = document.createElement('canvas');
+    const bctx = base.getContext('2d');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const GREEN = [125, 240, 156], MAGENTA = [255, 95, 198];
+    const rand = (a, b) => a + Math.random() * (b - a);
+    const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+    let w, h, dpr, cells = [], growth = 0, drawn = 0, allSegs = [], maxO = 1;
+    let mouse = { x: -9999, y: -9999 }, nextSpont = 120, t = 0;
+
+    // ---- build cells ----
+    function build() {
+      cells = []; allSegs = [];
+      const n = w < 700 ? 3 : 7;
+      for (let i = 0; i < n; i++) {
+        const x = w < 700 ? rand(0.1, 0.9) * w : rand(0.45, 0.96) * w;
+        const y = rand(0.12, 0.88) * h;
+        const cell = { x, y, r: rand(6, 11), col: Math.random() < 0.65 ? GREEN : MAGENTA,
+                       net: Math.random() < 0.4, segs: [], act: 0, waves: [], bright: null, bx: 0, by: 0 };
+        const dendrites = Math.floor(rand(5, 8));
+        for (let d = 0; d < dendrites; d++) branch(cell, x, y, rand(0, Math.PI * 2), rand(2, 3), 0, 0);
+        cells.push(cell);
+        allSegs.push(...cell.segs);
+      }
+      allSegs.sort((a, b) => a.order - b.order);
+      maxO = allSegs.length ? allSegs[allSegs.length - 1].order : 1;
+      cells.forEach(makeBright);
+    }
+    function branch(cell, x, y, ang, width, depth, order) {
+      const len = rand(80, 170) / (depth * 0.8 + 1), steps = Math.ceil(len / 8);
+      for (let s = 0; s < steps; s++) {
+        ang += rand(-0.35, 0.35);
+        const nx = x + Math.cos(ang) * 8, ny = y + Math.sin(ang) * 8;
+        cell.segs.push({ x1: x, y1: y, x2: nx, y2: ny, w: Math.max(0.4, width * (1 - s / steps * 0.6)), col: cell.col, order: order + s });
+        x = nx; y = ny;
+      }
+      if (depth < 3) {
+        const kids = Math.random() < 0.5 ? 2 : 1;
+        for (let k = 0; k < kids; k++) branch(cell, x, y, ang + rand(-0.8, 0.8), width * 0.6, depth + 1, order + steps);
+      }
+    }
+    function strokeSeg(c, s, halo, core, boost) {
+      c.strokeStyle = rgba(s.col, halo); c.lineWidth = s.w + 5 * boost;
+      c.beginPath(); c.moveTo(s.x1, s.y1); c.lineTo(s.x2, s.y2); c.stroke();
+      c.strokeStyle = rgba(s.col, core); c.lineWidth = s.w * boost;
+      c.beginPath(); c.moveTo(s.x1, s.y1); c.lineTo(s.x2, s.y2); c.stroke();
+    }
+    function drawNet(c, cell, alpha) {
+      const p = { x: cell.x, y: cell.y, r: cell.r * 2.4 }, k = 14;
+      for (const [lw, al] of [[4, 0.1], [0.9, 0.55]]) {
+        c.strokeStyle = rgba(MAGENTA, al * alpha); c.lineWidth = lw;
+        for (let i = 0; i < k; i++) {
+          const a1 = i / k * Math.PI * 2, a2 = (i + 1) / k * Math.PI * 2;
+          const r1 = p.r * (i % 2 ? 1 : 1.25), r2 = p.r * (i % 2 ? 1.25 : 1);
+          c.beginPath();
+          c.moveTo(p.x + Math.cos(a1) * r1, p.y + Math.sin(a1) * r1);
+          c.lineTo(p.x + Math.cos(a2) * r2, p.y + Math.sin(a2) * r2);
+          c.lineTo(p.x + Math.cos(a2) * p.r * 0.75, p.y + Math.sin(a2) * p.r * 0.75);
+          c.stroke();
+        }
+      }
+    }
+    function drawSoma(c, cell, alpha, scale) {
+      const R = cell.r * 3 * scale, g = c.createRadialGradient(cell.x, cell.y, 0, cell.x, cell.y, R);
+      g.addColorStop(0, rgba(cell.col, 0.95 * alpha)); g.addColorStop(0.35, rgba(cell.col, 0.35 * alpha)); g.addColorStop(1, rgba(cell.col, 0));
+      c.fillStyle = g; c.beginPath(); c.arc(cell.x, cell.y, R, 0, Math.PI * 2); c.fill();
+    }
+    // A bright copy of each cell, cropped to its bounding box, used when it fires
+    function makeBright(cell) {
+      let x0 = cell.x, y0 = cell.y, x1 = cell.x, y1 = cell.y;
+      for (const s of cell.segs) { x0 = Math.min(x0, s.x2); y0 = Math.min(y0, s.y2); x1 = Math.max(x1, s.x2); y1 = Math.max(y1, s.y2); }
+      const pad = 40; x0 -= pad; y0 -= pad; x1 += pad; y1 += pad;
+      const c = document.createElement('canvas');
+      c.width = (x1 - x0) * dpr; c.height = (y1 - y0) * dpr;
+      const k = c.getContext('2d');
+      k.setTransform(dpr, 0, 0, dpr, -x0 * dpr, -y0 * dpr);
+      k.globalCompositeOperation = 'lighter'; k.lineCap = 'round';
+      for (const s of cell.segs) strokeSeg(k, s, 0.12, 0.7, 1.3);
+      drawSoma(k, cell, 1, 1.8);
+      cell.bright = c; cell.bx = x0; cell.by = y0; cell.bw = x1 - x0; cell.bh = y1 - y0;
+    }
+
+    // ---- base layer grows in incrementally ----
+    function growBase(progress) {
+      if (drawn === 0) {
+        bctx.clearRect(0, 0, w, h);
+        for (const cell of cells) drawSoma(bctx, cell, 0.8, 1);
+      }
+      bctx.globalCompositeOperation = 'lighter'; bctx.lineCap = 'round';
+      const maxOrder = maxO * progress;
+      while (drawn < allSegs.length && allSegs[drawn].order <= maxOrder) strokeSeg(bctx, allSegs[drawn++], 0.05, 0.32, 1);
+      if (progress >= 1) for (const cell of cells) if (cell.net) drawNet(bctx, cell, 1);
+      bctx.globalCompositeOperation = 'source-over';
+    }
+
+    // ---- firing ----
+    function fire(cell, strength) {
+      if (cell.act < 0.3) cell.waves.push(0);
+      cell.act = Math.max(cell.act, strength);
+    }
+    function nearCell(cell, x, y, r2) {
+      const dx0 = cell.x - x, dy0 = cell.y - y;
+      if (dx0 * dx0 + dy0 * dy0 < r2 * 2) return true;
+      for (let i = 0; i < cell.segs.length; i += 3) {
+        const s = cell.segs[i], dx = s.x2 - x, dy = s.y2 - y;
+        if (dx * dx + dy * dy < r2) return true;
+      }
+      return false;
+    }
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      for (const c of [canvas, base]) { c.width = w * dpr; c.height = h * dpr; }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); bctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      build(); drawn = 0; growth = reduce ? 1 : 0; growBase(growth);
+    }
+
+    function frame() {
+      t++;
+      if (growth < 1) { growth = Math.min(1, growth + 0.006); growBase(growth); }
+      ctx.clearRect(0, 0, w, h);
+      ctx.drawImage(base, 0, 0, w, h);
+      if (growth >= 1) {
+        // spontaneous activity: a random cell fires softly now and then
+        if (--nextSpont <= 0) { fire(cells[Math.floor(Math.random() * cells.length)], 0.45); nextSpont = rand(150, 320); }
+        ctx.globalCompositeOperation = 'lighter';
+        for (const cell of cells) {
+          if (cell.act > 0.01) {
+            ctx.globalAlpha = cell.act;
+            ctx.drawImage(cell.bright, cell.bx, cell.by, cell.bw, cell.bh);
+            ctx.globalAlpha = 1;
+            cell.act *= 0.965;
+          } else cell.act = 0;
+          // expanding ring from the soma, like a calcium wave
+          cell.waves = cell.waves.filter(r => r < 1);
+          for (let i = 0; i < cell.waves.length; i++) {
+            const r = cell.waves[i];
+            ctx.strokeStyle = rgba(cell.col, 0.35 * (1 - r)); ctx.lineWidth = 1.5;
+            ctx.beginPath(); ctx.arc(cell.x, cell.y, cell.r * 2 + r * 90, 0, Math.PI * 2); ctx.stroke();
+            cell.waves[i] = r + 0.015;
+          }
+        }
+        ctx.globalCompositeOperation = 'source-over';
+      }
+      if (!reduce) requestAnimationFrame(frame);
+    }
+
+    function poke(clientX, clientY) {
+      if (growth < 1) return;
+      const r = canvas.getBoundingClientRect(), x = clientX - r.left, y = clientY - r.top;
+      mouse.x = x; mouse.y = y;
+      for (const cell of cells) if (nearCell(cell, x, y, 45 * 45)) fire(cell, 1);
+    }
+    window.addEventListener('resize', resize);
+    canvas.parentElement.addEventListener('mousemove', e => poke(e.clientX, e.clientY));
+    canvas.parentElement.addEventListener('touchstart', e => poke(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    canvas.parentElement.addEventListener('touchmove', e => poke(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    resize(); frame();
+  })();
+</script>
+</body>
+</html>
