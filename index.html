@@ -10,14 +10,12 @@
 <link rel="icon" href="images/favicon-face-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon-face.png">
 <meta name="theme-color" content="#150e17">
-<!-- Link preview (LinkedIn, Slack, texts, etc.).
-     Once the site is live, replace https://YOUR-USERNAME.github.io with your real address
-     in the two lines marked SITE URL. Link previews need the full address to find the image. -->
+<!-- Link preview (LinkedIn, Slack, texts, etc.) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Marquise S. Henry">
 <meta property="og:description" content="PhD candidate and HHMI Gilliam Fellow at LSU studying the neural and neuroendocrine mechanisms of neophobia in vertebrates.">
-<meta property="og:url" content="https://YOUR-USERNAME.github.io/"><!-- SITE URL -->
-<meta property="og:image" content="https://YOUR-USERNAME.github.io/images/preview.png"><!-- SITE URL -->
+<meta property="og:url" content="https://marquise-henry.com/">
+<meta property="og:image" content="https://marquise-henry.com/images/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Marquise S. Henry: neuroendocrinology of neophobia">
@@ -277,6 +275,14 @@
   .contact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 72% 45%; display: block; }
   footer { padding: 36px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer .logos {
+    display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 28px 56px;
+    padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid var(--border);
+  }
+  footer .logos a { display: inline-flex; align-items: center; opacity: .85; transition: opacity .2s; }
+  footer .logos a:hover { opacity: 1; text-decoration: none; }
+  footer .logos img { height: 48px; width: auto; display: block; }
+  footer .logos .logo-name { font: 400 .8rem "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
   /* Reveal animation */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
@@ -509,10 +515,10 @@
     <div class="statement reveal" id="mentoring">
       <div class="mono">Mentoring</div>
       <h3>Mentoring statement</h3>
-      <p>My mentoring philosophy is to provide the structure and room for each protégé to develop skills that may benefit them in their career and life. As every mentee is unique, I aim to understand the goals of each protégé, as well as their style of learning. I strive to create a balanced interaction in which we learn from one another. I want them to feel comfortable in seeking my advice or discuss next steps. To develop this relationship based on mutual respect, I work with them to establish expectations that we will follow and listen to their concerns. Once protégés have developed skills beneficial to them and the confidence that they can accomplish their goals, my role changes to stepping back and allowing them to grow on their own.</p>
-      <p>To assist them in developing their particular skill set, I provide them with insight into the choices I have made in my career and the impacts of those choices. Through these discussions, I have learned that many protégés are unaware of the opportunities and resources available to them. Guiding them to find such resources and showing them how to utilize them strategically is one of my goals. To help them develop a network of other potential guides with different experiences than my own, I require students to present at a professional meeting or conference. These meetings allow mentees to establish colleagues and potential next steps in their careers.</p>
-      <p>Understanding my protégés is an important step in accommodating their individual goals and ensuring their skills and actions help them reach them. While teaching is a focus of mine, I also want to challenge them. This allows them to learn the necessary critical thinking and problem-solving skills to work independently and confidently.</p>
-      <p>I require that my protégés demonstrate enthusiasm, honesty, effective communication, and initiative. That is a standard I have set for myself and aim to utilize in my mentee interactions. I strive to provide a safe presence so protégés feel comfortable coming to me with concerns, questions, and feedback. Should protégés have concerns or require guidance on topics outside the focus of their careers, I am open to discussing these issues and finding potential resources to help deal with them. Forming meaningful connections with each student, providing opportunities and training, and listening to their concerns is my focus as I aim to provide an environment that facilitates mutual growth and a successful career.</p>
+      <p>My mentoring philosophy is to provide the structure and room for each protégé to develop skills that may benefit them in their career and life. As every mentee is unique, I aim to understand the goals of each protégé, as well as their style of learning. I strive to create a balanced interaction in which we learn from one another. I want them to feel comfortable in seeking my advice or discuss next steps. To develop this relationship based on mutual respect, I work with them to establish expectations that we will follow and listen to their concerns. Once proteges have developed skills beneficial to them and the confidence that they can accomplish their goals, my role changes to stepping back and allowing them to grow on their own.</p>
+      <p>To assist them in developing their particular skill set, I provide them with insight into the choices I have made in my career and the impacts of those choices. Through these discussions, I have learned that many proteges are unaware of the opportunities and resources available to them. Guiding them to find such resources and showing them how to utilize them strategically is one of my goals. To help them develop a network of other potential guides with different experiences than my own, I require students to present at a professional meeting or conference. These meetings allow mentees to establish colleagues and potential next steps in their careers.</p>
+      <p>Understanding my proteges is an important step in accommodating their individual goals and ensuring their skills and actions help them reach them. While teaching is a focus of mine, I also want to challenge them. This allows them to learn the necessary critical thinking and problem-solving skills to work independently and confidently.</p>
+      <p>I require that my proteges demonstrate enthusiasm, honesty, effective communication, and initiative. That is a standard I have set for myself and aim to utilize in my mentee interactions. I strive to provide a safe presence so proteges feel comfortable coming to me with concerns, questions, and feedback. Should proteges have concerns or require guidance on topics outside the focus of their careers, I am open to discussing these issues and finding potential resources to help deal with them. Forming meaningful connections with each student, providing opportunities and training, and listening to their concerns is my focus as I aim to provide an environment that facilitates mutual growth and a successful career.</p>
     </div>
 
     <!-- Optional teaching-philosophy quote:
@@ -583,6 +589,17 @@
 </section>
 
 <footer>
+  <!-- Affiliation logos: save the official logo files as images/logo-hhmi.png and images/logo-lsu.png.
+       White or "reversed" versions look best on the dark background. Until a file is there,
+       its name shows as text instead. -->
+  <div class="wrap logos">
+    <a href="https://www.hhmi.org/programs/gilliam-fellows" target="_blank" rel="noopener" aria-label="HHMI Gilliam Fellows Program">
+      <img src="images/logo-hhmi.png" alt="Howard Hughes Medical Institute" onerror="this.outerHTML='&lt;span class=&quot;logo-name&quot;&gt;HHMI Gilliam Fellows&lt;/span&gt;'">
+    </a>
+    <a href="https://www.lsu.edu/science/biosci/" target="_blank" rel="noopener" aria-label="LSU Department of Biological Sciences">
+      <img src="images/logo-lsu.png" alt="Louisiana State University" onerror="this.outerHTML='&lt;span class=&quot;logo-name&quot;&gt;Louisiana State University&lt;/span&gt;'">
+    </a>
+  </div>
   <div class="wrap">
     <span style="display:inline-flex;align-items:center;gap:10px"><svg style="width:34px;height:26px;color:var(--muted)"><use href="#sparrow"/></svg>&copy; <span id="yr"></span> Marquise S. Henry</span>
     <span>Department of Biological Sciences &middot; Louisiana State University</span>
